@@ -8,12 +8,6 @@ pipeline {
 
     stages {
 
-        stage('Clone') {
-            steps {
-                git 'https://github.com/KeerthanaAR123/email-notification.git'
-            }
-        }
-
         stage('Build (Maven)') {
             steps {
                 bat 'mvn clean package'
@@ -35,6 +29,15 @@ pipeline {
                 email-app
                 '''
             }
+        }
+    }
+
+    post {
+        success {
+            echo '✅ Pipeline completed successfully!'
+        }
+        failure {
+            echo '❌ Pipeline failed. Check logs.'
         }
     }
 }
