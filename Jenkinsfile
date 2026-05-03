@@ -10,7 +10,7 @@ pipeline {
 
         stage('Clone') {
             steps {
-                git 'https://github.com/KeerthanaAR123/email-notification-system.git'
+                git 'https://github.com/KeerthanaAR123/email-notification.git'
             }
         }
 
